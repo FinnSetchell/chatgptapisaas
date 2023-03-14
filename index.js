@@ -25,6 +25,11 @@ app.post('/', async (req, res) => {
         temperature: 0,
       });
       console.log(response.data)
+      if (response.data){
+        if (response.data.choices[0].text){
+            res.json({message: response.data.choices[0].text});
+        }
+      }
       res.json({
         message: "Hello from server!",
     });
